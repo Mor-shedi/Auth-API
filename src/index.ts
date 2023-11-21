@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import compression from "compression";
 import cors from "cors";
 import dotenv from "dotenv";
+
 import db from "./config/db";
 import authRoute from "./routes/auth.route";
 import userRoute from "./routes/users.route";
@@ -14,11 +15,7 @@ const app = express();
 
 db();
 
-app.use(
-  cors({
-    credentials: true,
-  })
-);
+app.use(cors({ credentials: true }));
 
 app.use(compression());
 app.use(cookieParser());
